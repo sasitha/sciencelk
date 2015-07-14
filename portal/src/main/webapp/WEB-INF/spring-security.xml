@@ -1,0 +1,41 @@
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="authenticationHandler" class="com.sciencelk.portal.common.AuthenticationHandler">
+    </bean>
+
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/management**" access="ROLE_USER"/>
+        <security:form-login
+                always-use-default-target="true"
+                login-page="/login"
+                default-target-url="/login"
+                login-processing-url="/perform_login"
+                authentication-failure-url="/login?error"
+                username-parameter="username"
+                password-parameter="password"/>
+        <security:logout logout-success-url="/login"
+                         delete-cookies="JSESSIONID" invalidate-session="true"/>
+
+        <security:http-basic/>
+    </security:http>
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider ref="authenticationHandler"/>
+    </security:authentication-manager>
+
+    <context:annotation-config/>
+    <bean id="authUrl" class="java.lang.String">
+        <constructor-arg type="java.lang.String"
+                         value="#{systemProperties['AUTH_URL']}"/>
+    </bean>
+
+</beans>

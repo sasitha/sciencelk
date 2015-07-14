@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/science_lk</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping resource="com/scienclk/dataaccess/entities/Article.hbm.xml"/>
+      <mapping class="com.sciencelk.dataaccess.entities.Article"/>
+      <mapping resource="com/scienclk/dataaccess/entities/ArticleHasTag.hbm.xml"/>
+      <mapping class="com.sciencelk.dataaccess.entities.ArticleHasTag"/>
+      <mapping class="com.sciencelk.dataaccess.entities.Previlage"/>
+      <mapping resource="com/scienclk/dataaccess/entities/Previlage.hbm.xml"/>
+      <mapping resource="com/scienclk/dataaccess/entities/Tag.hbm.xml"/>
+      <mapping class="com.sciencelk.dataaccess.entities.Tag"/>
+      <mapping resource="com/scienclk/dataaccess/entities/User.hbm.xml"/>
+      <mapping class="com.sciencelk.dataaccess.entities.User"/>
+      <mapping class="com.sciencelk.dataaccess.entities.Privilege"/>
+      <mapping resource="com/scienclk/dataaccess/entities/Privilege.hbm.xml"/>
+      <mapping resource="com/sciencelk/dataaccess/entities/Article.hbm.xml"/>
+      <mapping resource="com/sciencelk/dataaccess/entities/ArticleHasTag.hbm.xml"/>
+      <mapping resource="com/sciencelk/dataaccess/entities/Privilege.hbm.xml"/>
+      <mapping resource="com/sciencelk/dataaccess/entities/Tag.hbm.xml"/>
+      <mapping resource="com/sciencelk/dataaccess/entities/User.hbm.xml"/>
+      <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

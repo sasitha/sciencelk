@@ -1,0 +1,16 @@
+
+.m-page-wrapper{
+    margin-top: 55px;
+}
+
+.m-settings-gear{
+    background-image: url(images/settings-gear.png);
+    background-repeat: no-repeat;
+    position: absolute; !important;
+    margin-top: -7px;
+    margin-left: -15px;
+    
+}
+.m-pipes {
+    color: #000000;
+}

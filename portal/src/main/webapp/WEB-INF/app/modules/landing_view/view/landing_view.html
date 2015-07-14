@@ -1,0 +1,22 @@
+<div class="row">
+            <div class="page-header">
+                <h2 style="margin-left: 2%;">{{categoryType.name}}</h2>
+            </div>
+            <div ng-repeat="article in landingView.articleList">
+                <h3 ng-bind-html="article.title"></h3>
+                <div ng-bind-html="article.intro">
+                </div>
+                <button class="btn btn-sm btn-default"
+                        ng-click="landingView.viewDetailedArticle(article)">View Details</button>
+                <button class="btn btn-medium font-bold"
+                        socialshare
+                        socialshare-provider="facebook"
+                        socialshare-text="{{article.intro}}"
+                        socialshare-url="http://720kb.net"
+                        socialshare-popup-height="300"
+                        socialshare-popup-width="400"
+                        socialshare-trigger="click" >
+                    <i class="fa fa-facebook"></i>
+                </button>
+            </div>
+</div>

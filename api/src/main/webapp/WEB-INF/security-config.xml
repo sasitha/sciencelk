@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd 
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="authenticationService" class="java.lang.String">
+        <constructor-arg value="/user/authenticate"/>
+    </bean>
+
+
+    <bean id="AuthenticationHandler"
+          class="com.sciencelk.common.interceptors.ServiceAuthenticationProvider">
+    </bean>
+
+    <bean id="filter"
+          class="com.sciencelk.common.interceptors.SpringSecuritySessionDeletingFilter">
+
+    </bean>
+
+    <bean id="accessDeniedHandler"
+          class="com.sciencelk.common.interceptors.AccessDeniedController">
+    </bean>
+
+    <security:http pattern="/v1/article" security="none"/>
+    <security:http pattern="/v1/category" security="none"/>
+    <security:http pattern="/v1/category/*/article" security="none"/>
+    <security:http pattern="/v1/article/**" security="none"/>
+    
+    <security:http create-session="stateless" auto-config="true" use-expressions="true">
+        <security:intercept-url pattern="#{authenticationService}" access="permitAll"/>
+        <security:intercept-url pattern="/v1/article" method="POST" access="permitAll"/>
+        
+        <security:intercept-url pattern="/" method="GET" access="permitAll"/>
+        <security:intercept-url pattern="/" access="denyAll"/>
+        <security:custom-filter ref="filter" after="SECURITY_CONTEXT_FILTER"></security:custom-filter>
+        <security:access-denied-handler ref="accessDeniedHandler"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider ref="AuthenticationHandler"/>
+
+    </security:authentication-manager>
+    <context:annotation-config/>
+
+
+</beans>

@@ -1,0 +1,13 @@
+<ul class="left-navigation">
+
+    <li ng-class="{active: route.current.activeClass ===  app.meta.licenseSettings.activeNavigationClass}"
+        ng-click="navigate(app.meta.licenseSettings.rootRoute)">
+        <span class="icon {{app.meta.licenseSettings.contextIconClass}}"></span><a href="">{{app.meta.licenseSettings.title}}</a>
+    </li>
+
+    <li ng-class="{active: route.current.activeClass ===  app.meta.violations.activeNavigationClass}"
+        ng-click="navigate(app.meta.violations.rootRoute)">
+        <span class="icon {{app.meta.violations.contextIconClass}}"></span><a href="">{{app.meta.violations.title}}</a>
+    </li>
+
+</ul>

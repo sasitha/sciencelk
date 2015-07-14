@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="articleRepository" class="com.sciencelk.dataaccess.repositories.ArticleRepository"/>
+    <bean id="articleTagRepository" class="com.sciencelk.dataaccess.repositories.ArticleTagRepository"/>
+    <bean id="privilegeRepository" class="com.sciencelk.dataaccess.repositories.PrivilegeRepository"/>
+    <bean id="tagRepository" class="com.sciencelk.dataaccess.repositories.TagRepository"/>
+    <bean id="userRepository" class="com.sciencelk.dataaccess.repositories.UserRepository"/>
+    <bean id="categoryRepository" class="com.sciencelk.dataaccess.repositories.CategoryRepository"/>
+    
+    
+    <bean id="articleService" class="com.sciencelk.services.ArticleService"/>
+    <bean id="userService" class="com.sciencelk.services.UserService"/>
+    <bean id="categoryService" class="com.sciencelk.services.CategoryService"/>
+</beans>

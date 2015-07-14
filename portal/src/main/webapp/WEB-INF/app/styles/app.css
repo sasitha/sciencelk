@@ -1,0 +1,26 @@
+
+.loginPanel{
+    margin-top: 10%;
+}
+
+.text_error {
+    color: #C90D0D;
+}
+
+.loginPanel.text_error{
+    margin-bottom: 10px;
+}
+
+.btn{
+    border-radius: 0; !important;
+}
+.category-btn{
+    border-radius: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.page-header{
+    background-color: #c69b38;
+    margin: 0px 0 20px; !important;
+    padding-bottom: 0;
+}
